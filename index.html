@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="display.css" />
   </head>
   <body>
     <main id="app" class="app theme-strawberry" aria-live="polite">
@@ -75,13 +76,18 @@
           <h2 id="environment-title">Strawberry</h2>
           <p id="scene-description">Sweet, soft, and a little nostalgic.</p>
         </div>
-        <div class="interior" aria-hidden="true">
-          <div class="ceiling"><div class="chandelier"><b></b><i></i><i></i><i></i><i></i><i></i></div></div>
-          <div class="wall-frame frame-one"></div><div class="wall-frame frame-two"></div>
-          <div class="display-case"><div class="shelf shelf-top"><i></i><i></i><i></i></div><div class="shelf shelf-bottom"><i></i><i></i><i></i><i></i></div></div>
+        <div class="interior vintage-interior" aria-hidden="true">
+          <div class="wallpaper"></div>
+          <div class="vintage-poster"><small>AROMA'S</small><strong>Sweet<br />Memory</strong><em>made with love</em></div>
+          <div class="heart-clock"><i></i><b>12</b><b>3</b><b>6</b><b>9</b></div>
+          <div class="lace-shelf"><div class="figurine">♟</div><div class="figurine">♟</div><div class="figurine">♟</div><div class="flower-vase"></div></div>
+          <div class="flavour-jar"><span></span><b class="jar-label strawberry-label">BERRY<br />SUGAR</b><b class="jar-label chocolate-label">COCOA<br />NIBS</b><b class="jar-label apple-label">APPLE<br />SPICE</b></div>
+          <div class="flavour-notes"><span class="berry-note">strawberry jam · vanilla cream · rose petal</span><span class="cocoa-note">cocoa · toasted hazelnut · warm caramel</span><span class="apple-note">green apple · cinnamon · orchard blossom</span></div>
+          <div class="cake-cloche cloche-large"><div class="cloche-cake"><i></i><i></i><i></i></div></div>
+          <div class="cake-cloche cloche-small"><div class="cloche-cake"></div></div>
+          <div class="display-case"><div class="shelf shelf-top"><i></i><i></i><i></i></div><div class="shelf shelf-bottom"><i></i><i></i><i></i><i></i></div><div class="price-tags"><b>petit fours<br /><em>15¢</em></b><b>cream puffs<br /><em>15¢</em></b><b>jam tarts<br /><em>15¢</em></b></div></div>
           <div class="counter"><div class="counter-top"></div><div class="counter-panel"></div></div>
-          <div class="featured-dessert"><div class="plate"></div><div class="dessert-body"><i></i><i></i><i></i></div></div>
-          <div class="window-light"></div><div class="foreground-flowers"></div>
+          <div class="flavour-table"><div class="scent-cardlet">TASTE NOTES<br /><strong id="flavor-title">Berry &amp; Cream</strong></div><div class="tea-cup"></div><div class="tiny-flowers"></div></div>
         </div>
         <p class="scene-credit">Aroma Cake Shop · visual scent study</p>
       </section>

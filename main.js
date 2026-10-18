@@ -5,14 +5,15 @@ const context = canvas.getContext('2d');
 const sceneTitle = document.querySelector('#environment-title');
 const sceneDescription = document.querySelector('#scene-description');
 const sceneLabel = document.querySelector('#scene-label');
+const flavorTitle = document.querySelector('#flavor-title');
 let locked = false;
 let particles = [];
 let animationFrame;
 
 const scents = {
-  strawberry: { title: 'Strawberry', description: 'Sweet, soft, and a little nostalgic.', label: 'SCENT NO. 01', theme: 'theme-strawberry', colors: ['#f56f91', '#ffc8cf', '#fff4df'], shape: 'petal' },
-  chocolate: { title: 'Chocolate', description: 'Rich, warm, and deeply comforting.', label: 'SCENT NO. 02', theme: 'theme-chocolate', colors: ['#573021', '#a86743', '#f0c576'], shape: 'crumb' },
-  apple: { title: 'Apple', description: 'Fresh, crisp, and naturally sweet.', label: 'SCENT NO. 03', theme: 'theme-apple', colors: ['#80a866', '#d8e980', '#ee9582'], shape: 'leaf' }
+  strawberry: { title: 'Strawberry', description: 'Sweet, soft, and a little nostalgic.', flavor: 'Berry & Cream', label: 'SCENT NO. 01', theme: 'theme-strawberry', colors: ['#f56f91', '#ffc8cf', '#fff4df'], shape: 'petal' },
+  chocolate: { title: 'Chocolate', description: 'Rich, warm, and deeply comforting.', flavor: 'Cocoa & Caramel', label: 'SCENT NO. 02', theme: 'theme-chocolate', colors: ['#573021', '#a86743', '#f0c576'], shape: 'crumb' },
+  apple: { title: 'Apple', description: 'Fresh, crisp, and naturally sweet.', flavor: 'Apple & Cinnamon', label: 'SCENT NO. 03', theme: 'theme-apple', colors: ['#80a866', '#d8e980', '#ee9582'], shape: 'leaf' }
 };
 
 function showScreen(next) {
@@ -52,7 +53,7 @@ function setScene(name) {
   const scent = scents[name];
   app.classList.remove(...Object.values(scents).map((item) => item.theme));
   app.classList.add(scent.theme);
-  sceneTitle.textContent = scent.title; sceneDescription.textContent = scent.description; sceneLabel.textContent = scent.label;
+  sceneTitle.textContent = scent.title; sceneDescription.textContent = scent.description; sceneLabel.textContent = scent.label; flavorTitle.textContent = scent.flavor;
   document.querySelectorAll('[data-switch]').forEach((button) => button.classList.toggle('selected', button.dataset.switch === name));
 }
 function chooseScent(card) {
