@@ -27,19 +27,22 @@ function showScreen(next) {
 function resizeCanvas() { canvas.width = window.innerWidth * devicePixelRatio; canvas.height = window.innerHeight * devicePixelRatio; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); }
 function createParticles(scent) {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const count = reduced ? 24 : window.innerWidth < 720 ? 58 : 125;
+  const count = reduced ? 30 : window.innerWidth < 720 ? 86 : 220;
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
   particles = Array.from({ length: count }, (_, index) => {
     const angle = Math.random() * Math.PI * 2;
-    const speed = 2 + Math.random() * 9;
-    return { x: centerX, y: centerY, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - 1.2, size: 2 + Math.random() * 6, life: 1, decay: .011 + Math.random() * .014, color: scent.colors[index % scent.colors.length], shape: scent.shape, spin: Math.random() * Math.PI };
+    const speed = 3 + Math.random() * 13;
+    return { x: centerX, y: centerY, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - 1.6, size: 3 + Math.random() * 10, life: 1, decay: .007 + Math.random() * .011, color: scent.colors[index % scent.colors.length], shape: scent.shape, spin: Math.random() * Math.PI, swirl: (Math.random() - .5) * .18 };
   });
 }
 function drawParticles() {
   context.clearRect(0, 0, window.innerWidth, window.innerHeight);
   particles.forEach((particle) => {
-    particle.x += particle.vx; particle.y += particle.vy; particle.vy += .025; particle.vx *= .992; particle.life -= particle.decay; particle.spin += .08;
+    const turn = Math.atan2(particle.vy, particle.vx) + particle.swirl;
+    const speed = Math.hypot(particle.vx, particle.vy) * .988;
+    particle.vx = Math.cos(turn) * speed; particle.vy = Math.sin(turn) * speed + .025;
+    particle.x += particle.vx; particle.y += particle.vy; particle.life -= particle.decay; particle.spin += .08;
     context.save(); context.globalAlpha = Math.max(particle.life, 0); context.fillStyle = particle.color; context.translate(particle.x, particle.y); context.rotate(particle.spin);
     if (particle.shape === 'leaf') { context.beginPath(); context.ellipse(0, 0, particle.size * .45, particle.size, 0, 0, Math.PI * 2); context.fill(); }
     else if (particle.shape === 'petal') { context.beginPath(); context.ellipse(0, 0, particle.size * .55, particle.size, .7, 0, Math.PI * 2); context.fill(); }
