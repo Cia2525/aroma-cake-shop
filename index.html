@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7d8df" />
+    <title>Aroma Cake Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" class="app theme-strawberry" aria-live="polite">
+      <canvas id="particles" aria-hidden="true"></canvas>
+
+      <section id="start" class="screen start-screen active" aria-labelledby="start-title">
+        <div class="sunlight" aria-hidden="true"></div>
+        <div class="shop-facade" aria-hidden="true">
+          <div class="awning"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="shop-sign"><span>Aroma</span><small>Patisserie</small></div>
+          <div class="window window-left"><div class="cake cake-pink"></div><div class="macarons"></div></div>
+          <div class="door"><span class="door-glow"></span><span class="door-handle"></span></div>
+          <div class="window window-right"><div class="cake cake-gold"></div><div class="macarons"></div></div>
+          <div class="flower-pot left"></div><div class="flower-pot right"></div>
+        </div>
+        <div class="start-copy">
+          <p class="eyebrow">A SENSORY PATISSERIE</p>
+          <h1 id="start-title">Aroma<br />Cake Shop</h1>
+          <p class="cn-title">如果气味可以被看见。</p>
+          <p class="lead">A world where scents become visual.</p>
+          <button class="ornate-button" id="enter-button" type="button">Enter the Shop <span>→</span></button>
+        </div>
+        <div class="scroll-hint">SCROLL INTO A SCENT</div>
+      </section>
+
+      <section id="scent-choice" class="screen choice-screen" aria-labelledby="choice-title" hidden>
+        <header class="page-heading">
+          <p class="eyebrow">THE BEGINNING OF EVERY MEMORY</p>
+          <h2 id="choice-title">Choose Your Scent</h2>
+          <p>Choose an element to discover its world.</p>
+        </header>
+        <div class="scent-cards" role="list">
+          <button class="scent-card strawberry" data-scent="strawberry" type="button" role="listitem" aria-label="Choose Strawberry: Sweet, Soft, Warm">
+            <span class="ribbon">01</span><span class="frame-ornament">✦</span>
+            <span class="ingredient strawberry-ingredient"><i class="leaf leaf-one"></i><i class="leaf leaf-two"></i><i class="berry berry-one"></i><i class="berry berry-two"></i><i class="berry berry-three"></i></span>
+            <span class="card-name">Strawberry</span><span class="card-note">Sweet · Soft · Warm</span>
+          </button>
+          <button class="scent-card chocolate" data-scent="chocolate" type="button" role="listitem" aria-label="Choose Chocolate: Rich, Warm, Deep">
+            <span class="ribbon">02</span><span class="frame-ornament">✦</span>
+            <span class="ingredient chocolate-ingredient"><i></i><i></i><i></i><b></b><b></b></span>
+            <span class="card-name">Chocolate</span><span class="card-note">Rich · Warm · Deep</span>
+          </button>
+          <button class="scent-card apple" data-scent="apple" type="button" role="listitem" aria-label="Choose Apple: Fresh, Natural, Crisp">
+            <span class="ribbon">03</span><span class="frame-ornament">✦</span>
+            <span class="ingredient apple-ingredient"><i class="apple-fruit"></i><i class="apple-slice"></i><i class="apple-leaf"></i></span>
+            <span class="card-name">Apple</span><span class="card-note">Fresh · Natural · Crisp</span>
+          </button>
+        </div>
+        <p class="choice-footer">Select an ingredient to let its hidden world unfold.</p>
+      </section>
+
+      <section id="environment" class="screen environment-screen" aria-labelledby="environment-title" hidden>
+        <nav class="scent-nav" aria-label="Scent worlds">
+          <button class="nav-logo" id="back-button" type="button" aria-label="Back to scent selection">A<span>c</span></button>
+          <div class="nav-options">
+            <button data-switch="strawberry" class="selected" type="button"><span></span>Strawberry</button>
+            <button data-switch="chocolate" type="button"><span></span>Chocolate</button>
+            <button data-switch="apple" type="button"><span></span>Apple</button>
+          </div>
+          <button id="back-to-scents" class="back-text" type="button">← Back to Scents</button>
+        </nav>
+        <div class="environment-copy">
+          <p class="eyebrow" id="scene-label">SCENT NO. 01</p>
+          <h2 id="environment-title">Strawberry</h2>
+          <p id="scene-description">Sweet, soft, and a little nostalgic.</p>
+        </div>
+        <div class="interior" aria-hidden="true">
+          <div class="ceiling"><div class="chandelier"><b></b><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="wall-frame frame-one"></div><div class="wall-frame frame-two"></div>
+          <div class="display-case"><div class="shelf shelf-top"><i></i><i></i><i></i></div><div class="shelf shelf-bottom"><i></i><i></i><i></i><i></i></div></div>
+          <div class="counter"><div class="counter-top"></div><div class="counter-panel"></div></div>
+          <div class="featured-dessert"><div class="plate"></div><div class="dessert-body"><i></i><i></i><i></i></div></div>
+          <div class="window-light"></div><div class="foreground-flowers"></div>
+        </div>
+        <p class="scene-credit">Aroma Cake Shop · visual scent study</p>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
